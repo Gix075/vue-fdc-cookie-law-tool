@@ -409,6 +409,8 @@ export class fdcCookieLawTool {
             policy_contactform = policy_contactform.replaceAll('[[CONTACTFORM DATA]]',contact_form_personal_data_list);
             policy_contactform = policy_contactform.replaceAll('[[CONTACTFORM DATA STORAGE]]',contact_form_storage.join());
 
+            first_party_services += policy_contactform;
+
         }
 
 
@@ -427,8 +429,11 @@ export class fdcCookieLawTool {
 
             account_personal_data_list = '<ul>' + account_personal_data_list + '</ul>';
 
-            policy_siteaccount = policy_siteaccount.replaceAll('[[CONTACTFORM DATA]]',account_personal_data_list);
-            policy_siteaccount = policy_siteaccount.replaceAll('[[CONTACTFORM DATA STORAGE]]',account_storage);
+            policy_siteaccount = policy_siteaccount.replaceAll('[[ACCOUNT DATA]]',account_personal_data_list);
+            policy_siteaccount = policy_siteaccount.replaceAll('[[ACCOUNT DATA STORAGE]]',account_storage.join());
+
+            
+            first_party_services += policy_siteaccount;
 
         }
 
@@ -447,8 +452,11 @@ export class fdcCookieLawTool {
 
             ecommerce_personal_data_list = '<ul>' + ecommerce_personal_data_list + '</ul>';
 
-            policy_ecommerce = policy_ecommerce.replaceAll('[[CONTACTFORM DATA]]',ecommerce_personal_data_list);
-            policy_ecommerce = policy_ecommerce.replaceAll('[[CONTACTFORM DATA STORAGE]]',ecommerce_storage);
+            policy_ecommerce = policy_ecommerce.replaceAll('[[ECOMMERCE DATA]]',ecommerce_personal_data_list);
+            policy_ecommerce = policy_ecommerce.replaceAll('[[ECOMMERCE DATA STORAGE]]',ecommerce_storage.join());
+
+            
+            first_party_services += policy_ecommerce;
 
         }
 
@@ -461,11 +469,13 @@ export class fdcCookieLawTool {
                 hosting_data_administrator = this.config.privacyPolicy.thirdpartyDataStorage.hosting.data_administrator,
                 hosting_policy = this.config.privacyPolicy.thirdpartyDataStorage.hosting.policy;
         
-            if ( hosting_policy != "" && hosting_policy != undefined ) {
+            if ( hosting_policy != "" && hosting_policy != undefined && hosting_policy != false ) {
                 hosting_policy = '<a href="' + hosting_policy + '" target="_blank">' + hosting_policy + '</a><br>';
+            }else{
+                hosting_policy = "";
             }
             
-            if( hosting_home != "" && hosting_home != undefined ) {
+            if( hosting_home != "" && hosting_home != undefined && hosting_home != false ) {
                 hosting_policy += '<a href="' + hosting_home + '" target="_blank">' + hosting_home + '</a>';
             }
 
@@ -473,6 +483,8 @@ export class fdcCookieLawTool {
             policy_hosting = policy_hosting.replaceAll('[[HOSTING DATACENTER]]',hosting_datacenter);
             policy_hosting = policy_hosting.replaceAll('[[HOSTING POLICY]]',hosting_policy);
             policy_hosting = policy_hosting.replaceAll('[[HOSTING DATA ADMINISTRATOR]]',hosting_data_administrator);
+
+            third_party_services += policy_hosting;
 
         }
 
@@ -499,16 +511,12 @@ export class fdcCookieLawTool {
             policy_newsletter = policy_newsletter.replaceAll('[[NEWSLETTER DATACENTER]]',newsletter_datacenter);
             policy_newsletter = policy_newsletter.replaceAll('[[NEWSLETTER PROVIDER POLICY]]',newsletter_policy);
             policy_newsletter = policy_newsletter.replaceAll('[[NEWSLETTER DATA ADMINISTRATOR]]',newsletter_data_administrator);
-
+            
+            third_party_services += policy_newsletter;
         }
 
         
-        first_party_services += policy_contactform;
-        first_party_services += policy_siteaccount;
-        first_party_services += policy_ecommerce;
-
-        third_party_services += policy_hosting;
-        third_party_services += policy_newsletter;
+        
 
         // VAT NUMBER 
         let vat_number = this.config.globals.company.vatLabel + this.config.globals.company.vatNumber;

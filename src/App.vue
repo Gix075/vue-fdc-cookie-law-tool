@@ -1,7 +1,8 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
-    <router-link to="/cookie-policy">Cookie Policy Example</router-link>
+    <router-link to="/cookie-policy">Cookie Policy Example</router-link> | 
+    <router-link to="/privacy-policy">Privacy Policy Example</router-link>
   </nav>
   <router-view/>
   <FdcCookieLawTool config="config.json" docs="docs.complete.json" banner/>

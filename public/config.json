@@ -167,11 +167,14 @@
                 "indirizzo di residenza",
                 "numero di telefono", 
                 "indirizzo e-mail"
+            ],
+            "storage": [
+                "Database del sito"
             ]
         },
         "thirdpartyDataStorage": {
             "hosting": {
-                "provider": "",
+                "provider": "Nome Provider",
                 "home": false,
                 "datacenter": "",
                 "policy": false,
