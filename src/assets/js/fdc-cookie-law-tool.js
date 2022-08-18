@@ -46,34 +46,12 @@ export class fdcCookieLawTool {
     /* This is a shorthand methods of handleGlobalPolicyStatus(); */
     choisesRejectAll() {
 
-        /* let cname = this.config.cookieBanner.cookieName,
-            cvalue = this.config.cookieBanner.cookieValueRejected,
-            cexpire = this.config.cookieBanner.cookieExpire,
-            result = false;
-            
-
-        if( this.setCookie(cname, cvalue, cexpire) ) {
-            console.log('cookie setted')
-            result = true;
-            this.handleAllServicesStatus(false);
-        } */
-
         return this.handleGlobalPolicyStatus(false,true);
 
     }
 
     /* This is a shorthand methods of handleGlobalPolicyStatus(); */
     choisesAcceptAll() {
-        
-        /* let cname = this.config.cookieBanner.cookieName,
-            cvalue = this.config.cookieBanner.cookieValue,
-            cexpire = this.config.cookieBanner.cookieExpire,
-            result = false;
-        
-        if( this.setCookie(cname, cvalue, cexpire) ) {
-            result = true;
-            this.handleAllServicesStatus(true);
-        } */
 
         return this.handleGlobalPolicyStatus(true,true);
 
@@ -516,8 +494,6 @@ export class fdcCookieLawTool {
         }
 
         
-        
-
         // VAT NUMBER 
         let vat_number = this.config.globals.company.vatLabel + this.config.globals.company.vatNumber;
         vat_number = ( this.config.globals.company['otherCode-1'] != "" ) ? vat_number + "<br>" + this.config.globals.company['otherCode-1'] : vat_number;

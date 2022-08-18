@@ -5,6 +5,8 @@
             A vue component that use FDCookieLaw Tool for italian cookie law elements (banner and policy) and GDPR compliant privacy policy
             <a href="https://github.com/Gix075/vue-fdc-cookie-law-tool" target="_blank" rel="noopener">Documentation</a>.
         </p>
+        <h2>Un tool per la gestione del consenso all'uso dei cookie</h2>
+        <p><strong>Vue FDC Cookie Law Tool</strong> ti permette di creare dinamicamente delle policy usando il tool <a href="https://github.com/FattiDiCookies/italianPrivacyPolicy" target="_blank">Italian Privacy Policy</a> realizzato da FattiDiCookies</p>
     </div>
 </template>
 

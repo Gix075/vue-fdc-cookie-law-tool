@@ -156,18 +156,14 @@
 
             acceptAllCookies() {
                 let accept = new fdcCookieLawTool(this.tool.config,this.tool.docs).choisesAcceptAll();
-                console.log("ACCEPT " + accept)
                 if (accept != false) {
-                    console.log('ACCEPTED')
                     this.tool.banner.show = false;
                 }
             },
 
             rejectAllCookies() {
                 let reject = new fdcCookieLawTool(this.tool.config,this.tool.docs).choisesRejectAll();
-                console.log("REJECT " + reject)
                 if (reject != false) {
-                    console.log('REJECTED')
                     this.tool.banner.show = false;
                 }
             },
@@ -181,13 +177,13 @@
                         },
                     })
                     const config = await r.json()
-                    console.log(config)
                     return config
                 } catch (error) {
-                    console.log('FdcCookieBanner getConfig() --> fetch error: ' + error)
+                    console.error('FdcCookieBanner getConfig() --> fetch error: ' + error)
                     return false
                 }
             },
+            // eslint-disable-next-line no-unused-vars
             async getDocuments(config) {
                 try {
                     const r = await fetch(this.docs, {
@@ -197,8 +193,6 @@
                         },
                     })
                     const documents = await r.json()
-                    console.log(config)
-                    console.log(documents)
                     return documents
                 } catch (error) {
                     console.log('FdcCookieBanner getConfig() --> fetch error: ' + error)
@@ -209,7 +203,7 @@
         mounted() {
             //let config = this.getConfig();
             this.getConfig().then(config => {
-                //console.log("this is the config: " + JSON.stringify(config))
+
                 this.getDocuments(config).then(docs => {
                     
                     const FDCCT = new fdcCookieLawTool(config,docs);
@@ -221,13 +215,10 @@
                     this.tool.config = config;
                     this.tool.docs = JSON.parse(docs_string);
 
-
-
-                    console.log('data config ' + JSON.stringify(this.tool.config)) ;
                     
                     if( this.banner === true ) {
                         this.tool.banner =  FDCCT.getCookieBanner();
-                        console.log( 'new banner data: ' + JSON.stringify(this.tool.banner) );
+
                     }
 
                     if( this.page === "cookies" || this.page === "cookie" ) {
