@@ -1,6 +1,6 @@
-export const name = 'fdcCookieLawTool';
+export const name = 'fdcCookieLawToolJS';
 
-export class fdcCookieLawTool {
+export class fdcCookieLawToolJS {
 
     
     constructor(config_json,docs_json) {

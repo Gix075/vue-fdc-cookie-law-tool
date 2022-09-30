@@ -1,5 +1,5 @@
 <template>
-    <div v-if="banner == true && tool.banner.show == true" class="fdc-banner" :class="tool.banner.class">
+    <div v-if="banner === true && tool.banner.show === true" class="fdc-banner" :class="tool.banner.class">
         <div class="fdc-banner--inner">
             <div v-if="tool.banner.buttons.close.active" class="fdc-banner--close" @click="rejectAllCookies()">x</div>
             <div class="fdc-banner--text">
@@ -80,7 +80,7 @@
 
 <script>
     
-    import {fdcCookieLawTool} from '@/assets/js/fdc-cookie-law-tool.js'
+    import {fdcCookieLawToolJS} from './fdc-cookie-law-tool'
     
     export default {
         name: "FdcCookieLawTool",
@@ -131,7 +131,7 @@
             },
 
             isSingeServiceAccepted(service,return_class=false) {
-                let is_accepted = new fdcCookieLawTool(this.tool.config,this.tool.docs).getSingleServiceStatus(service);
+                let is_accepted = new fdcCookieLawToolJS(this.tool.config,this.tool.docs).getSingleServiceStatus(service);
                 if ( return_class === true && is_accepted != undefined && is_accepted != "empty" ) {
                     return ( is_accepted === true ) ? "service--accepted" : "service-not-accepted";
                 }
@@ -144,7 +144,7 @@
             },
 
             handleSingleServiceStatus(service,action) {
-                let fdc = new fdcCookieLawTool(this.tool.config,this.tool.docs);
+                let fdc = new fdcCookieLawToolJS(this.tool.config,this.tool.docs);
                 fdc.handleServicesCookieArray(service,action);
                 fdc.handleSingleServiceStatus(service,action);
                 this.tool.services_status[service] = action;
@@ -155,14 +155,14 @@
             },
 
             acceptAllCookies() {
-                let accept = new fdcCookieLawTool(this.tool.config,this.tool.docs).choisesAcceptAll();
+                let accept = new fdcCookieLawToolJS(this.tool.config,this.tool.docs).choisesAcceptAll();
                 if (accept != false) {
                     this.tool.banner.show = false;
                 }
             },
 
             rejectAllCookies() {
-                let reject = new fdcCookieLawTool(this.tool.config,this.tool.docs).choisesRejectAll();
+                let reject = new fdcCookieLawToolJS(this.tool.config,this.tool.docs).choisesRejectAll();
                 if (reject != false) {
                     this.tool.banner.show = false;
                 }
@@ -206,7 +206,7 @@
 
                 this.getDocuments(config).then(docs => {
                     
-                    const FDCCT = new fdcCookieLawTool(config,docs);
+                    const FDCCT = new fdcCookieLawToolJS(config,docs);
 
                     let docs_string = JSON.stringify(docs);
                     
@@ -218,7 +218,6 @@
                     
                     if( this.banner === true ) {
                         this.tool.banner =  FDCCT.getCookieBanner();
-
                     }
 
                     if( this.page === "cookies" || this.page === "cookie" ) {
@@ -232,9 +231,6 @@
                         this.tool.banner.show = false;
                         this.tool.privacy_policy.text = FDCCT.getPrivacyPolicy();
                     }
-
-                    
-
                 });
             }); 
             

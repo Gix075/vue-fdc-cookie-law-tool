@@ -46,7 +46,7 @@
     },
     
     "cookiePolicy": {
-        "url": "demo_cookiePolicy.html",
+        "url": "/cookie-policy",
         "services": [
             {
                 "catName":"stats",
@@ -107,7 +107,7 @@
     },
     
     "privacyPolicy": {
-        "url": "demo_privacyPolicy.html",
+        "url": "/privacy-policy",
         "deviceDataTitle": "Dati relativi al dispositivo dell'utente",
         "deviceDataDesc": "Sono dati raccolti automaticamente dal sistema che riguardano il dispositivo con il quale viene navigato il sito. I dati così raccolti vengono conservati in forma completamente anonima e sono consultabili solo in forma aggreta. In alcuni casi l'indirizzo ip viene anonimizzato sottraendo ad esso le ultime tre cifre.",
         "deviceData": [

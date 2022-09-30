@@ -3,7 +3,7 @@
 </template>
 
 <script>
-    import FdcCookieLawTool from '@/components/FdcCookieLawTool.vue'
+    import FdcCookieLawTool from '@/FdcCookieLawTool.vue'
     export default {
         name: "CookiePolicyView",
         components: {
