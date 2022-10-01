@@ -1,27 +1,13 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from '@/components/HelloWorld.vue'
+import { RouterView } from 'vue-router'
 import FdcCookieLawTool from '@/FdcCookieLawTool.vue'
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-        <RouterLink to="/cookie-policy">Cookie Policy</RouterLink>
-        <RouterLink to="/privacy-policy">Privacy Policy</RouterLink>
-      </nav>
-      <FdcCookieLawTool v-if="!isPolicyPage" config="config.json" docs="docs.complete.json" banner/>
-    </div>
-  </header>
-
+    
   <RouterView />
+  <FdcCookieLawTool v-if="!isPolicyPage" config="config.json" docs="docs.complete.json" banner/>
+
 </template>
 
 <script>
@@ -37,6 +23,10 @@ import FdcCookieLawTool from '@/FdcCookieLawTool.vue'
     }
 </script>
 
+<style lang="scss">
+    @import '@/assets/main.scss';
+</style>
+<!-- 
 <style scoped>
 header {
   line-height: 1.5;
@@ -100,3 +90,4 @@ nav a:first-of-type {
   }
 }
 </style>
+ -->
