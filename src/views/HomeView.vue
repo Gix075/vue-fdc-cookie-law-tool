@@ -39,10 +39,13 @@
         
     </main>
 
+    <TheFooter image />
+
 </template>
 
 <script setup>
     import TheHeader from '../components/TheHeader.vue';
+    import TheFooter from '../components/TheFooter.vue';
     import IconDocumentation from '../components/icons/IconDocumentation.vue';
     import IconTooling from '../components/icons/IconTooling.vue';
 </script>

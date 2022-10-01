@@ -92,3 +92,17 @@ h1 {
         }
     }
 }
+
+.footer {
+    padding-top: 40px;
+    .footer--image {
+        img {
+            width: 100%;
+            margin-bottom: 0;
+            vertical-align: bottom;
+        }
+    }
+    .footer--signature {
+        background-color: var(--green);
+    }
+}
