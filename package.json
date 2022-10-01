@@ -1,6 +1,6 @@
 {
   "name": "vue-fdc-cookie-law-tool",
-  "version": "0.0.0",
+  "version": "0.1.13",
   "main": "dist/vue-fdc-cookie-law-tool.js",
   "module": "dist/vue-fdc-cookie-law-tool.mjs",
   "files": [
